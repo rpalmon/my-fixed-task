@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 351, in run
+    await self._prepare()
+  File "C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 385, in _prepare
+    await self._setup_agent_environment()
+  File "C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 1148, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 1154, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 891, in start
+    await self._run_docker_compose_command(["build"])
+  File "C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 656, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__tqhtey9__env --project-directory C:\Users\Roee Palmon\fix-task-broken.tar\fix-task-broken\log-report\environment -f C:\Users\Roee Palmon\AppData\Local\Temp\tmp6jxmspef\log-report__tqHTEY9__env-docker-compose-resources.json -f C:\Users\Roee Palmon\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker-compose-build.yaml -f C:\Users\Roee Palmon\AppData\Local\Temp\tmpb1n0u6cu\docker-compose-environment.json -f C:\Users\Roee Palmon\AppData\Local\Temp\tmpnegqqsu2\docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__tqhtey9__env-main Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 649B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 310B done
+#2 WARN: InvalidDefaultArgInFrom: Default value for ARG python:3.12-slim-bookworm@sha256:sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b results in empty or invalid base image name (line 1)
+#2 DONE 0.1s
+Dockerfile:1
+
+--------------------
+
+   1 | >>> FROM python:3.12-slim-bookworm@sha256:sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b
+
+   2 |     
+
+   3 |     RUN pip install --no-cache-dir pytest==8.4.1 pytest-json-ctrf==0.3.5
+
+--------------------
+
+failed to solve: failed to parse stage name "python:3.12-slim-bookworm@sha256:sha256:d50fb7611f86d04a3b0471b46d7557818d88983fc3136726336b2a4c657aa30b": invalid reference format
+
+. Stderr: None. 
